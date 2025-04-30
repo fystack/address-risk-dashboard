@@ -518,6 +518,9 @@ function App() {
               {isLoading ? "Loading..." : "Analyze"}
             </button>
           </div>
+          <div className="text-gray-400 text-xs mt-2">
+            Currently supporting EVM addresses only. Solana address support coming soon.
+          </div>
           {isLoading && (
             <div id="loading-indicator" className="text-gray-400 text-sm mt-2">
               Fetching risk data...
