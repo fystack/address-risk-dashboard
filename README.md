@@ -1,7 +1,5 @@
 # Risk Intelligence Dashboard
 
-![Risk Intelligence Dashboard](https://github.com/yourusername/risk-intelligence-dashboard/raw/main/screenshot.png)
-
 ![Dashboard Preview](images/images.png)
 
 A dashboard for analyzing cryptocurrency addresses for risk factors, powered by the [Webacy API](https://developers.webacy.co/).
