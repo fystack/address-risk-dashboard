@@ -425,7 +425,12 @@ function App() {
               rel="noopener noreferrer"
               className="inline-block"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 99 24" aria-hidden="true" className="h-10">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 99 24"
+                aria-hidden="true"
+                className="h-10"
+              >
                 <path
                   fill="#3b82f6"
                   d="M16 8a5 5 0 0 0-5-5H5a5 5 0 0 0-5 5v13.927a1 1 0 0 0 1.623.782l3.684-2.93a4 4 0 0 1 2.49-.87H11a5 5 0 0 0 5-5V8Z"
@@ -437,7 +442,7 @@ function App() {
                   style={{
                     fontFamily: "Arial, sans-serif",
                     fontWeight: "bold",
-                    fontSize: "14px"
+                    fontSize: "14px",
                   }}
                 >
                   Fystack
