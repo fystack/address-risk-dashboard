@@ -398,10 +398,10 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-8 relative pb-20">
-      <div className="max-w-7xl mx-auto space-y-8">
+    <div className="min-h-screen bg-gray-900 text-white p-4 sm:p-8 relative pb-20">
+      <div className="max-w-7xl mx-auto space-y-6 sm:space-y-8">
         {/* Attribution header */}
-        <div className="flex items-center justify-between mb-6 text-sm text-gray-400">
+        <div className="flex flex-col sm:flex-row items-center justify-between mb-6 text-sm text-gray-400 gap-4">
           <div className="flex items-center gap-2">
             <span>API powered by</span>
             <a
@@ -417,7 +417,7 @@ function App() {
               />
             </a>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center gap-4">
             <a
               href="https://github.com/fystack/address-risk-dashboard"
               target="_blank"
@@ -467,18 +467,18 @@ function App() {
           </div>
         </div>
 
-        <div className="flex items-start justify-between">
+        <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-6 sm:gap-0">
           <div>
-            <h1 className="text-3xl font-bold mb-2">
+            <h1 className="text-2xl sm:text-3xl font-bold mb-2 text-center sm:text-left">
               Risk Intelligence Dashboard
             </h1>
-            <div className="text-lg text-gray-400 mb-4">
+            <div className="text-base sm:text-lg text-gray-400 mb-4 text-center sm:text-left">
               <span className="font-mono">
                 {primaryAddress.slice(0, 10)}...
               </span>
               <span className="ml-2">{addressLabel}</span>
             </div>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap justify-center sm:justify-start gap-2">
               {riskTags.map((tag, index) => (
                 <RiskTag
                   key={index}
@@ -494,7 +494,7 @@ function App() {
               ))}
             </div>
           </div>
-          <div className="flex flex-col items-end">
+          <div className="flex flex-col items-center sm:items-end">
             <div className="flex flex-col items-center">
               <RiskScore score={overallRisk} />
               <div className="mt-2">
@@ -509,7 +509,7 @@ function App() {
         </div>
 
         <form onSubmit={handleSubmit} className="relative">
-          <div className="flex gap-2">
+          <div className="flex flex-col sm:flex-row gap-2">
             <div className="relative flex-1">
               <input
                 type="text"
@@ -549,8 +549,8 @@ function App() {
           </div>
         )}
 
-        <div className="grid grid-cols-2 gap-8">
-          <div className="bg-gray-800/50 rounded-xl p-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          <div className="bg-gray-800/50 rounded-xl p-4 sm:p-6">
             <h2 className="text-xl font-semibold mb-6">Risk Breakdown</h2>
             {riskTags.length > 0 ? (
               <div className="space-y-4">
@@ -580,10 +580,10 @@ function App() {
             )}
           </div>
 
-          <div className="space-y-8">
+          <div className="space-y-6 md:space-y-8">
             <RiskFlagCard data={data} riskTags={riskTags} />
 
-            <div className="bg-gray-800/50 rounded-xl p-6">
+            <div className="bg-gray-800/50 rounded-xl p-4 sm:p-6">
               <h2 className="text-xl font-semibold mb-4">
                 Risk Recommendations
               </h2>
@@ -618,8 +618,8 @@ function App() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-8">
-          <div className="bg-gray-800/50 rounded-xl p-6 overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          <div className="bg-gray-800/50 rounded-xl p-4 sm:p-6 overflow-hidden">
             <h2 className="text-xl font-semibold mb-4">Fund Flow</h2>
             <div className="text-sm text-gray-400">
               Show money flows between addresses
@@ -627,7 +627,7 @@ function App() {
             <FundFlowGraph data={data} />
           </div>
 
-          <div className="bg-gray-800/50 rounded-xl p-6">
+          <div className="bg-gray-800/50 rounded-xl p-4 sm:p-6">
             <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
               <Activity className="text-blue-500" size={20} />
               Transactions
@@ -639,8 +639,8 @@ function App() {
       
       {/* Feedback Button - Fixed at bottom */}
       <div className="fixed bottom-0 left-0 right-0 bg-gray-800/80 backdrop-blur-sm py-3 border-t border-gray-700">
-        <div className="max-w-7xl mx-auto px-8 flex items-center justify-between">
-          <div className="text-sm text-gray-400">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-0">
+          <div className="text-sm text-gray-400 text-center sm:text-left">
             Have feedback? We'd love to hear from you!
           </div>
           <a 
