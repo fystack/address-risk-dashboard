@@ -417,38 +417,53 @@ function App() {
               />
             </a>
           </div>
-          <div className="flex items-center gap-2">
-            <span>Developed by</span>
+          <div className="flex items-center gap-4">
             <a
-              href="https://fystack.io"
+              href="https://github.com/fystack/address-risk-dashboard"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block"
+              className="inline-flex items-center gap-1 bg-gray-800 hover:bg-gray-700 transition-colors px-3 py-1 rounded-md"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 99 24"
-                aria-hidden="true"
-                className="h-10"
-              >
-                <path
-                  fill="#3b82f6"
-                  d="M16 8a5 5 0 0 0-5-5H5a5 5 0 0 0-5 5v13.927a1 1 0 0 0 1.623.782l3.684-2.93a4 4 0 0 1 2.49-.87H11a5 5 0 0 0 5-5V8Z"
-                />
-                <text
-                  x="26"
-                  y="16"
-                  fill="#ffffff"
-                  style={{
-                    fontFamily: "Arial, sans-serif",
-                    fontWeight: "bold",
-                    fontSize: "14px",
-                  }}
-                >
-                  Fystack
-                </text>
-              </svg>
+              <img 
+                src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" 
+                alt="GitHub logo"
+                className="h-5 w-5" 
+              />
+              <span>View on GitHub</span>
             </a>
+            <div className="flex items-center gap-2">
+              <span>Developed by</span>
+              <a
+                href="https://fystack.io"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 99 24"
+                  aria-hidden="true"
+                  className="h-10"
+                >
+                  <path
+                    fill="#3b82f6"
+                    d="M16 8a5 5 0 0 0-5-5H5a5 5 0 0 0-5 5v13.927a1 1 0 0 0 1.623.782l3.684-2.93a4 4 0 0 1 2.49-.87H11a5 5 0 0 0 5-5V8Z"
+                  />
+                  <text
+                    x="26"
+                    y="16"
+                    fill="#ffffff"
+                    style={{
+                      fontFamily: "Arial, sans-serif",
+                      fontWeight: "bold",
+                      fontSize: "14px",
+                    }}
+                  >
+                    Fystack
+                  </text>
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
 
