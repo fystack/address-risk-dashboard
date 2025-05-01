@@ -398,7 +398,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-8">
+    <div className="min-h-screen bg-gray-900 text-white p-8 relative pb-20">
       <div className="max-w-7xl mx-auto space-y-8">
         {/* Attribution header */}
         <div className="flex items-center justify-between mb-6 text-sm text-gray-400">
@@ -634,6 +634,26 @@ function App() {
             </h2>
             <TransactionTable data={data} />
           </div>
+        </div>
+      </div>
+      
+      {/* Feedback Button - Fixed at bottom */}
+      <div className="fixed bottom-0 left-0 right-0 bg-gray-800/80 backdrop-blur-sm py-3 border-t border-gray-700">
+        <div className="max-w-7xl mx-auto px-8 flex items-center justify-between">
+          <div className="text-sm text-gray-400">
+            Have feedback? We'd love to hear from you!
+          </div>
+          <a 
+            href="https://t.me/+IsRhPyWuOFxmNmM9" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 transition-colors px-4 py-2 rounded-md text-white"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm.349 18.769c-.162.013-.313.02-.465.02-1.706 0-3.204-.827-4.142-2.103l-.013-.016c-.316-.433-.571-.91-.752-1.418C6.685 14.46 6.5 13.553 6.5 12c0-3.038 2.463-5.5 5.5-5.5 3.038 0 5.5 2.462 5.5 5.5 0 1.558-.648 2.964-1.688 3.968l.001.002-3.464 2.799zm3.728-10.208l-5.03 4.714-2.382-2.382c-.165-.165-.433-.165-.598 0s-.165.433 0 .598l2.715 2.715c.084.084.194.126.294.126.119 0 .231-.049.316-.137l5.236-4.908c.167-.157.175-.419.018-.587-.156-.167-.419-.175-.586-.018l.017-.121z" />
+            </svg>
+            Join our Telegram Community
+          </a>
         </div>
       </div>
     </div>
