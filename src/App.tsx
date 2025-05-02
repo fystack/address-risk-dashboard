@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Search, AlertTriangle, Activity, ArrowRight } from "lucide-react";
 import mockData from "./mockData";
+import bs58 from 'bs58';
 
 const apiKey = import.meta.env.VITE_WEBACY_API_KEY;
 
@@ -138,6 +139,27 @@ function RiskBadge({ score }: { score: number }) {
   );
 }
 
+/**
+ * Returns true if `address` is a valid Solana address (i.e. Base58-decodes
+ * to exactly 32 bytes), false otherwise.
+ */
+function isValidSolanaAddress(address: string): boolean {
+  try {
+    const decoded = bs58.decode(address);
+    return decoded.length === 32;
+  } catch (err) {
+    return false;
+  }
+}
+
+/**
+ * Returns true if `address` is a valid EVM address (starts with 0x and is 42 chars),
+ * false otherwise.
+ */
+function isValidEVMAddress(address: string): boolean {
+  return /^0x[a-fA-F0-9]{40}$/.test(address);
+}
+
 async function fetchAddressData(address: string) {
   if (!apiKey) {
     console.error(
@@ -146,7 +168,20 @@ async function fetchAddressData(address: string) {
     throw new Error("API key not configured");
   }
 
-  const url = `https://api.webacy.com/addresses/${address}`;
+  // Validate the address format
+  const isSolanaAddress = isValidSolanaAddress(address);
+  const isEVMAddress = isValidEVMAddress(address);
+
+  if (!isSolanaAddress && !isEVMAddress) {
+    throw new Error("Invalid address format. Please provide a valid Solana or EVM address.");
+  }
+
+  // Build the correct URL with proper query parameter formatting
+  let url = `https://api.webacy.com/addresses/${address}`;
+  if (isSolanaAddress) {
+    url += `?chain=sol`;
+  }
+
   const options = {
     method: "GET",
     headers: {
@@ -156,9 +191,12 @@ async function fetchAddressData(address: string) {
   };
 
   try {
+    console.log(`Fetching from: ${url}`); // Add logging to debug
     const response = await fetch(url, options);
     if (!response.ok) {
-      throw new Error(`API error: ${response.status}`);
+      const errorText = await response.text();
+      console.error(`API error: ${response.status}`, errorText);
+      throw new Error(`API error: ${response.status} - ${errorText}`);
     }
     return await response.json();
   } catch (error) {
@@ -361,6 +399,11 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // Update the address type detection to use the validation functions
+  const isSolanaAddress = address ? isValidSolanaAddress(address) : false;
+  const isEVMAddress = address ? isValidEVMAddress(address) : false;
+  const addressType = isSolanaAddress ? 'Solana' : isEVMAddress ? 'EVM' : '';
+
   // Extract risk tags from data with optional chaining
   const riskTags = data?.issues?.[0]?.tags || [];
   const overallRisk = data?.overallRisk || 0;
@@ -387,10 +430,15 @@ function App() {
     setError(null);
 
     try {
+      // Validate address before API call
+      if (!isValidSolanaAddress(address) && !isValidEVMAddress(address)) {
+        throw new Error("Invalid address format. Please provide a valid Solana or EVM address.");
+      }
+      
       const apiData = await fetchAddressData(address);
       setData(apiData);
     } catch (err) {
-      setError("Failed to fetch address data. Please try again.");
+      setError(err instanceof Error ? err.message : "Failed to fetch address data. Please try again.");
       console.error(err);
     } finally {
       setIsLoading(false);
@@ -477,6 +525,11 @@ function App() {
                 {primaryAddress.slice(0, 10)}...
               </span>
               <span className="ml-2">{addressLabel}</span>
+              {address && (
+                <span className="ml-2 px-2 py-0.5 text-xs rounded-full bg-blue-900/50 text-blue-400 border border-blue-700/30">
+                  {addressType}
+                </span>
+              )}
             </div>
             <div className="flex flex-wrap justify-center sm:justify-start gap-2">
               {riskTags.map((tag, index) => (
@@ -534,7 +587,7 @@ function App() {
             </button>
           </div>
           <div className="text-gray-400 text-xs mt-2">
-            Currently supporting EVM addresses only. Solana address support coming soon.
+            Supporting both EVM and Solana addresses.
           </div>
           {isLoading && (
             <div id="loading-indicator" className="text-gray-400 text-sm mt-2">
