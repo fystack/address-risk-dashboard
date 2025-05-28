@@ -333,7 +333,12 @@ function App() {
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-6">
-              <div className="relative flex items-center">
+              <a 
+                href="https://fystack.io/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="relative flex items-center hover:opacity-80 transition-opacity"
+              >
                 <img 
                   src={FystackLogo} 
                   alt="Fystack" 
@@ -342,7 +347,7 @@ function App() {
                 <div className="absolute -bottom-2 -right-2 text-xs text-gray-400 font-medium mt-1">
                   Risk Intelligence
                 </div>
-              </div>
+              </a>
               <nav className="hidden md:flex items-center gap-6 text-sm text-gray-400 ml-8">
                 <span className="text-gray-100">Dashboard</span>
               </nav>
