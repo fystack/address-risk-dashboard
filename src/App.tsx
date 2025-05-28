@@ -390,9 +390,27 @@ function App() {
               {isLoading ? "Analyzing..." : "Analyze"}
             </button>
           </form>
-          <p className="text-sm text-gray-500 mt-3">
-            Supporting Ethereum and Solana addresses
-          </p>
+          <div className="flex items-center gap-2 text-sm text-gray-500 mt-3">
+            <span>Supporting</span>
+            <div className="flex items-center gap-1">
+              <img 
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIa3GDAlj9jCzDOu-MBV7_NRhZ4VlzN-i8pg&s" 
+                alt="Ethereum" 
+                className="w-4 h-4 rounded-full"
+              />
+              <span>Ethereum</span>
+            </div>
+            <span>and</span>
+            <div className="flex items-center gap-1">
+              <img 
+                src="https://assets.trustwalletapp.com/blockchains/solana/info/logo.png" 
+                alt="Solana" 
+                className="w-4 h-4 rounded-full"
+              />
+              <span>Solana</span>
+            </div>
+            <span>addresses</span>
+          </div>
         </div>
 
         {error && (
