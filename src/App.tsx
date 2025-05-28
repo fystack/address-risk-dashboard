@@ -593,8 +593,36 @@ function App() {
             </div>
           )}
         </div>
+        <div className="relative overflow-hidden bg-gray-950 border border-white/20 rounded-xl p-6 mb-8">
+          {/* Green blur gradient */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(34,197,94,0.15),transparent_70%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(34,197,94,0.1),transparent_50%)]"></div>
+          
+          <div className="relative flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="text-center md:text-left">
+              <h2 className="text-xl font-bold text-white mb-2">
+                Protect Your Assets with Hack-Resistant Infrastructure
+              </h2>
+              <p className="text-gray-300 text-sm leading-relaxed">
+                Discover Fystack's cutting-edge wallet security solutions designed to prevent hacks and protect your digital assets.
+              </p>
+            </div>
+            <div className="flex-shrink-0">
+              <a
+                href="https://fystack.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+              >
+                <span>Explore Fystack</span>
+                <ExternalLink size={16} />
+              </a>
+            </div>
+          </div>
+        </div>
       </main>
-
+       {/* Fystack Promotion Banner */}
+     
       {/* Footer */}
       <footer className="border-t border-gray-900 bg-gray-950/50 mt-16">
         <div className="max-w-7xl mx-auto px-6 py-8">
