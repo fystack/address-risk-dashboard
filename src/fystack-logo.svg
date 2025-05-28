@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3921.24 999.9">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-2, .cls-3 {
+        isolation: isolate;
+      }
+
+      .cls-3 {
+        fill: #fff;
+        font-family: Arial-BoldMT, Arial;
+        font-size: 702.5px;
+        font-weight: 700;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="-54.99" y1="-780.13" x2="733.89" y2="-1235.62" gradientTransform="translate(0 -501.34) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0e70df"/>
+      <stop offset="1" stop-color="#00b9e6"/>
+    </linearGradient>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <path class="cls-1" d="M802.9,250.9C802.9,112.3,690.6,0,552,0H250.9C112.3,0,0,112.3,0,250.9v698.8c0,27.7,22.5,50.2,50.2,50.2,11.4,0,22.4-3.9,31.3-10.9l184.9-147c35.5-28.3,79.6-43.7,125-43.7h160.7c138.5,0,250.8-112.3,250.8-250.9V250.9Z"/>
+    <g class="cls-2">
+      <text class="cls-3" transform="translate(1304.7 652.3)"><tspan x="0" y="0">Fystack</tspan></text>
+    </g>
+  </g>
+</svg>
