@@ -577,7 +577,9 @@ function App() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="text-center p-6 bg-gray-900/30 border border-gray-800 rounded-xl">
                   <div className="text-3xl font-bold text-white mb-1">{addressInfo.balance}</div>
-                  <div className="text-sm text-gray-400 font-medium">Balance (ETH)</div>
+                  <div className="text-sm text-gray-400 font-medium">
+                    Balance ({isValidSolanaAddress(primaryAddress) ? 'SOL' : 'ETH'})
+                  </div>
                 </div>
                 <div className="text-center p-6 bg-gray-900/30 border border-gray-800 rounded-xl">
                   <div className="text-3xl font-bold text-white mb-1">{addressInfo.transaction_count}</div>
